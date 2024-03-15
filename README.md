@@ -5,12 +5,6 @@ BetterSheets is a lightweight, pure HTML and JavaScript-based cell-based calcula
 ## Wiki ℹ️
 Gitbook-hosted wiki with all the informations you may need to use BetterSheets. https://caminatifilippo62.gitbook.io/bettersheets-documentation
 
-## Features we aim for 📈
-
-- **Intuitive Interface**: Enjoy a familiar spreadsheet interface that makes data entry and manipulation a breeze.
-- **Powerful Calculations**: Perform complex calculations effortlessly with support for a wide range of mathematical functions.
-- **Real-Time Updates**: See your changes reflected instantly with real-time updates as you modify your data.
-
 ## Want to give a hand? ☕️
 
 We welcome contributions from the community to make BetterSheets even better. If you have ideas for new features, improvements, or bug fixes, please feel free to submit a pull request or open an issue here on GitHub.
