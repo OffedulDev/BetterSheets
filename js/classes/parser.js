@@ -67,3 +67,9 @@ export default class Parser {
         throw new Error(`Invalid formula: ${formula}`);
     }
 }
+
+// PARSER RESULT STRUCTURE
+// {
+//      formula: ""
+//      args: []
+// }

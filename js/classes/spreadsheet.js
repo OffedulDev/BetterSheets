@@ -15,10 +15,14 @@ export default class Spreadsheet {
         } 
     }
 
-    get_cell(col, row) {
+    get_cell(_cell) {
+        let col = _cell.charCodeAt(0) - 97
+        let row = _cell.substring(1, _cell.length)
+        col = parseInt(col)
+        row = parseInt(row) - 1
         col = this.columns[col]
-        let cell = col.cells[row]
 
+        let cell = col.cells[row]
         return cell
     }
 }
