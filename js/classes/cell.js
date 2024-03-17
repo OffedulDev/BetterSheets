@@ -1,5 +1,6 @@
 import Parser from "./parser.js";
 import Dispatcher from "./dispatcher.js";
+import UpdateHandler from "./update_handler.js";
 const cell_template = document.getElementById("cell-template")
 
 // PREFERENCES
@@ -19,13 +20,24 @@ export default class Cell {
         this._visual_cell.id = row.toString()
     }
 
-    onChange() {
-        let _parser = new Parser(this._input_node.value)
+    getId() {
+        return String.fromCharCode(97 + this.column) + parseInt(this.row + 1)
+    }
+
+    onChange(custom_value) {
+        let _use_value
+        if (custom_value) {
+            _use_value = custom_value
+        } else {
+            _use_value = this._input_node.value
+        }
+
+        let _parser = new Parser(_use_value)
         if (_parser.isFormula()) {
             let _result = _parser.parseFormula()
             let _dispatcher = new Dispatcher(_result, this.parent_spreadsheet)
             this.output = _dispatcher.dispatch()
-            this.formula = this._input_node.value
+            this.formula = _use_value
 
             if (AUTO_LOAD_AFTER_FORMULA) {
                 this._input_node.value = this.output
@@ -60,6 +72,9 @@ export default class Cell {
         setInterval(() => {
             if (this.output != this.__last_output) {
                 this.__last_output = this.output
+                
+                let _update_handler = new UpdateHandler(this, this.parent_spreadsheet)
+                _update_handler.runUpdate()
             }
         }, UPDATE_INTERVAL)
     }
