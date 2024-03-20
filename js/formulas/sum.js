@@ -1,4 +1,3 @@
-import Dispatcher from "../classes/dispatcher.js"
 import parseExpression from "../utility.js"
 
 export default function sum(parsed_arguments, spreadsheet) {

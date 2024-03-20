@@ -1,4 +1,5 @@
 import divide from "../formulas/divide.js"
+import _if from "../formulas/if.js"
 import sum from "../formulas/sum.js"
 
 export default class Dispatcher {
@@ -13,6 +14,8 @@ export default class Dispatcher {
             return sum(this.parse_result.args, this.spreadsheet)
         } else if (formula == "DIVIDE") {
             return divide(this.parse_result.args, this.spreadsheet)
+        } else if (formula = "IF") {
+            return _if(this.parse_result.args, this.spreadsheet)
         }
     }
 }
